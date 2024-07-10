@@ -1,21 +1,26 @@
 #include <Arduino.h>
+#include <Servo.h>
 
-int airvalvePin = 7;
+Servo servo;
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(airvalvePin, OUTPUT);
-    Serial.begin(9600);
-}
+int servoPin = 9;
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(airvalvePin, LOW);
-  delay(4000);
-  Serial.print("Analog sensor value: Low ");
-  digitalWrite(airvalvePin, HIGH);
-  delay(4000);
-  Serial.print("Analog sensor value: High ");
+void setup()
+{
+  servo.attach(servoPin);
 
 }
 
+void loop()
+{
+  servo.write(0);
+  delay(1000);
+
+  servo.write(90);
+  delay(1000);
+
+  servo.write(0);
+  delay(1000);
+
+
+}
