@@ -1,18 +1,21 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+int airvalvePin = 7;
 
 void setup() {
   // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  pinMode(airvalvePin, OUTPUT);
+    Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  digitalWrite(airvalvePin, LOW);
+  delay(4000);
+  Serial.print("Analog sensor value: Low ");
+  digitalWrite(airvalvePin, HIGH);
+  delay(4000);
+  Serial.print("Analog sensor value: High ");
+
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
